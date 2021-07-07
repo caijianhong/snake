@@ -38,6 +38,6 @@ var startgame=function(){
 	}
 }
 var aftergame=function(){
-	
+	//TODO：展示 mem/ 下的所有照片
 }
 interval=setInterval(beforegame,2000);
