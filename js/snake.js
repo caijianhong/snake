@@ -12,7 +12,6 @@ Snake.prototype.draw=function(){
 		this.a[i].draws("blue");
 	}
 }
-const dx=[0,0,-1,1,0],dy=[0,-1,0,0,1];
 Snake.prototype.move=function(){
 	var now=this.a[0];
 	var nxt=new Block(now.x+dx[this.dir],now.y+dy[this.dir]);
