@@ -26,7 +26,7 @@ Snake.prototype.move=function(){
 	this.a.unshift(nxt);
 	if(nxt.equ(apple.pos)){
 		score++;
-		if(score<6) apple.move();
+		if(score<scorelimits) apple.move();
 	}else{
 		this.a.pop();
 	}
