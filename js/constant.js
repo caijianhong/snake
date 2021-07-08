@@ -3,6 +3,7 @@ const height=$(window).get(0).innerHeight;
 const bsize=10;
 const n=width/bsize,m=height/bsize;
 const speed=100;
+const scorelimits=12,memorylimits=25;
 const colors=["red","orange","green","blue","purple","brown","black"];
 const keys={
 	65:"A",	74:"J",	83:"S",	49:"1",
@@ -14,7 +15,7 @@ const keys={
 	71:"G",	80:"P",	89:"Y",	55:"7",
 	72:"H",	81:"Q",	90:"Z",	56:"8",
 	73:"I",	82:"R",	48:"0",	57:"9",
-	13:"Enter"
+	13:"Enter",32:"Space"
 };
 const map={
 	37:2,38:1,39:3,40:4,//左上右下
