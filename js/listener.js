@@ -22,16 +22,12 @@ $("body").keydown(function(e){
 				isstop=true;
 				clearInterval(interval);
 			}
-			console.log("Stop or start?"+isstop);
 		}
 	}else if(stage==3){
-		if(key=="Enter"){
+		if(key=="Enter") aftergame();
+		if(key=="Space"){
 			stage++;
-			aftergame();
+			thanks();
 		}
-	}else if(stage==4){
-		
-	}else{
-		console.log("Error: Stage isn't in range [1,4]!");
 	}
 });
