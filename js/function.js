@@ -9,17 +9,6 @@ var gameover=function(){
 		window.location.reload();
 	},3000);
 }
-var win=function(){
-	console.log("win!");
-	stage++;
-	clearInterval(interval);
-	var img=new Image();
-	img.src="img/end.jpg";
-	img.onload=function(){
-		ctx.clearRect(0,0,height,width);
-		ctx.drawImage(img,0,0,width,height);
-	}
-}
 var drawstar=function(x,y){
 	var R=50,r=20;
 	ctx.beginPath();
@@ -38,7 +27,7 @@ var drawstar=function(x,y){
 }
 var drawstars=function(){
 	var x=60;
-	for(var i=0;i<score+1;i++){
+	for(var i=0;i<Math.floor((score+2)/2);i++){
 		drawstar(x,60);
 		x+=100;
 	}
@@ -61,7 +50,7 @@ Text.prototype.draw=function(){
 }
 var nowbarrages=[];
 var drawbarrages=function(){
-	if(Math.random()<0.03){
+	if(Math.random()<0.6){
 		nowbarrages.push(new Text(
 			width+100,
 			Math.floor(Math.random()*height),
@@ -71,5 +60,32 @@ var drawbarrages=function(){
 	}
 	for(var i=0;i<nowbarrages.length;i++){
 		if(nowbarrages[i].draw()) nowbarrages.splice(i,1);
+	}
+}
+var drawendtitle=function(){
+	var img=new Image();
+	img.src="mem/memory_last.jpg";
+	img.onload=function(){
+		ctx.clearRect(0,0,width,height);
+		
+		ctx.drawImage(img,0,0,width,height);
+		
+		ctx.fillStyle="grey";
+		ctx.fillRect(width/2-200,height/2-80,400,160);
+		
+		ctx.font="60px consolas";
+		ctx.textBaseline="middle";
+		ctx.textAlign="center";
+		ctx.fillStyle="black";
+		ctx.fillText("我们毕业了！",width/2,height/2);
+		
+		ctx.font="30px consolas";
+		ctx.fillText("按 Enter 感谢师恩",width/2,height/2+60);
+		
+		ctx.font="30px consolas";
+		ctx.textBaseline="bottom";
+		ctx.textAlign="right";
+		ctx.fillStyle="black";
+		ctx.fillText("Space>>>",width,height);
 	}
 }
