@@ -22,22 +22,60 @@ var beforegame=function(){
 		ctx.fillText("Enter>>>",width,height);
 	},2000);
 }
+var cnt=1,times=0;
 var startgame=function(){
 	moved=false;
-	if(score>=6) win();
+	if(score>=scorelimits) win();
 	var img=new Image();
-	img.src="img/grade"+(score+1)+".jpg";
+	img.src="mem/memory"+cnt+".jpg";
 	img.onload=function(){
 		ctx.clearRect(0,0,width,height);
+		times++;
+		if(times>=40){
+			times=0;
+			cnt=(cnt+1)%memorylimits;
+			if(cnt==0) cnt=memorylimits;
+		}
 		ctx.drawImage(img,0,0,width,height);
 		drawstars();
-		drawbarrages();
 		snake.move();
 		apple.draw();
 		snake.draw();
 	}
 }
+var win=function(){
+	stage++;
+	clearInterval(interval);
+	setTimeout(function(){
+		drawendtitle();
+	},2000);
+}
 var aftergame=function(){
-	//TODO：展示 mem/ 下的所有照片
+	nowbarrages=[];
+	var interval=setInterval(function(){
+		var img=new Image();
+		img.src="mem/memory_last.jpg";
+		img.onload=function(){
+			ctx.clearRect(0,0,width,height);
+			ctx.drawImage(img,0,0,width,height);
+			drawbarrages();
+		}
+	},speed);
+	setTimeout(function(){
+		clearInterval(interval);
+		drawendtitle();
+	},20000);
+}
+var thanks=function(){
+	ctx.clearRect(0,0,width,height);
+	ctx.font="30px consolas";
+	ctx.textBaseline="top";
+	ctx.textAlign="left";
+	ctx.fillStyle="black";
+	ctx.fillText("结束了六年的小学生活，",10,10);
+	ctx.fillText("我们即将踏入新的中学生活，",10,60);
+	ctx.fillText("祝所有同学们前程似锦，福如东海，",10,110);
+	ctx.fillText("考试蒙的全对，做的全会。",10,160);
+	ctx.fillText("谢谢！",10,210);
 }
 interval=setInterval(beforegame,2000);
