@@ -3,7 +3,7 @@ const height=$(window).get(0).innerHeight;
 const bsize=10;
 const n=width/bsize,m=height/bsize;
 const speed=100;
-const scorelimits=12,memorylimits=25;
+const scorelimits=12,memorylimits=5;
 const colors=["red","orange","green","blue","purple","brown","black"];
 const keys={
 	65:"A",	74:"J",	83:"S",	49:"1",
