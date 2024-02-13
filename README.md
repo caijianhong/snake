@@ -1,5 +1,7 @@
 # 贪吃蛇
 
+The site is live at https://caijianhong.github.io/snake/
+
 updated 2023: 这是一个贪吃蛇游戏，被（作者）用在了小学毕业典礼上，开源共享在 github 上。文件中的 mem/ 文件夹原本放置了 memery\*.jng（共 25 张）和 memery\_last.jpg（共 1 张），现在替换成 6 张风景照。如果希望用这个代码拿去给各种毕业典礼，可以将这些照片换成自己找的（特别的，memery\_last.jpg 是结尾照片），可以修改 js/constant.js 中的 memerylimits 常量以修改照片数量。
 
 游戏分为 4 个环节：
